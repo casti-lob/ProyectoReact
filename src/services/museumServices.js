@@ -7,3 +7,11 @@ const apiService = axios.create({
 })
 
 export const getMuseums = () => apiService.get()
+
+export const getMuseum = (museumId)=>{
+    return apiService.get(`/${museumId}`)
+}
+
+export const postMuseum =(museum)=>{
+    return apiService.post('/',museum)
+}

@@ -1,23 +1,21 @@
-import { useState, useEffect } from 'react'
+
+import MuseumPost from './AddMuseum'
 import './App.css'
-import { getMuseums } from './services/museumServices';
+import DetailMuseum from './Museum'
+import MuseumsList from './Museums'
 
 
 function App() {
-  const [museum, setMuseum] = useState({name:'',country:'',price:'',category:''});
+  return(
+    <>
+      <MuseumsList/>
+      ////
+      <DetailMuseum></DetailMuseum>
 
-useEffect(()=>{
-    
-    async function getMuseumsComp(){
-      const museum = await getMuseums()
-      console.log(museum);
-  }
-  getMuseumsComp()
-},[])
- return(
-  <>
-  </>
- )
+      <br /><br /><br /><br />
+      <MuseumPost/>
+    </>
+  )
 }
 
 export default App
