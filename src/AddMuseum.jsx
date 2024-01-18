@@ -14,31 +14,26 @@ const MuseumPost = ()=>{
         });
     };
 
-    const formSubmit = (e)=>{
+    const formSubmit = async (e)=>{
         e.preventDefault();
-    }
-
-    useEffect(()=>{
-        const museumSubmit = async ()=>{
+        if(museum.name && museum.category && museum.country && museum.price ){
             try{
                 const resp = await postMuseum(museum)
                 console.log(resp);
-                //Limpiamos el formulario
-                setMuseum({
-                    name: "",
-                    country: "",
-                    price: "",
-                    category: ""
-                })
+               
             }catch(error){
                 console.error("Error",error);
             }
+             //Limpiamos el formulario
+            setMuseum({
+                name: "",
+                country: "",
+                price: "",
+                category: ""
+            })
         }
-
-        if(museum.name && museum.category && museum.country && museum.price ){
-            museumSubmit()
-        }
-    },[formSubmit])
+    }
+    
 
     return(
         <>
@@ -71,14 +66,13 @@ const MuseumPost = ()=>{
                 />
             </div>
             <div>
-                <label htmlFor="category">Categoría:</label>
-                <input
-                type="text"
-                id="category"
-                name="category"
-                value={museum.category}
-                onChange={formChange}
-                />
+                <label >Categoría:</label>
+                <select htmlFor="category" id="category" name="category" value={museum.category} onChange={formChange}>
+                    <option value="Arte">Arte</option>
+                    <option value="Historico">Historico</option>
+                    <option value="Conceptual">Conceptual</option>
+                </select>
+               
             </div>
                 <button type="submit">Enviar</button>
             </form>
