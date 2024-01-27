@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { getMuseum } from "./services/museumServices";
+import { useParams } from "react-router-dom";
 
 const DetailMuseum = ()=>{
     const [museum, setMuseum] = useState({name:'',country:'',price:'',category:''});
+    const { id } = useParams();
 
     useEffect(()=>{
         const getMuseumComp = async () => {
             try{
-                const resp = await getMuseum("655e38ba67cfa54c0bb762bc");
+                const resp = await getMuseum(id);
                 setMuseum(resp.data)
             }catch(error){
                 console.error("Error al obtener museos ",error);

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getMuseums } from "./services/museumServices";
+import { Link } from 'react-router-dom';
 
 const MuseumsList = ()=>{
     const [museums, setMuseum] = useState([]);
@@ -35,6 +36,13 @@ const MuseumsList = ()=>{
                         <td>{museum.name}</td>
                         <td>{museum.price}</td>
                         <td>{museum.country}</td>
+                        <td><Link to={`/museum/${museum._id}`}><button type="button" className="btn btn-info">Ver Detalle</button></Link></td>
+                        <td><Link to={`/museumUpdate/${museum._id}`}><button type="button" className="btn btn-warning">Actualizar</button></Link></td>
+                        <td><Link to={`/museumDelete/${museum._id}`}><button type="button" className="btn btn-danger">Eliminar</button></Link></td>
+
+                        
+                        
+
                     </tr>
                 ))}
             

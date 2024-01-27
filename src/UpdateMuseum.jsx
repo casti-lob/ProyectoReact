@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { getMuseum, updateMuseum } from "./services/museumServices";
+import { useParams } from "react-router-dom";
 
 
 export const MuseumUpdate=()=>{
@@ -7,12 +8,14 @@ export const MuseumUpdate=()=>{
     country: "",
     price: "",
     category: "",});
+    const { id } = useParams();
+
     
     
     useEffect(()=>{
-        async function getProductToUpdate(){
+        async function getMuseumToUpdate(){
             try{
-                const museum = await getMuseum("65a6a24fe6a480ab0230c1ec")
+                const museum = await getMuseum(id)
                 setMuseum({
                     name: museum.data.name,
                     country: museum.data.country,
@@ -23,7 +26,7 @@ export const MuseumUpdate=()=>{
                 console.error("Error",error);
             }
         }
-        getProductToUpdate()
+        getMuseumToUpdate()
     },[])
 
     const formChange= (e)=>{
@@ -37,7 +40,7 @@ export const MuseumUpdate=()=>{
         e.preventDefault();
         if(museum.name && museum.category && museum.country && museum.price ){
             try{
-                const resp = await updateMuseum("65a6a24fe6a480ab0230c1ec",museum)
+                const resp = await updateMuseum(id,museum)
                 console.log(resp);
                
             }catch(error){
