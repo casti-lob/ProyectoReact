@@ -15,6 +15,7 @@ import UserPost from './AddUser'
 import UserUpdate from './UpdateUser'
 import UserDelete from './DeleteUser'
 import MuseumsVisiteds from './MuseumsVisiteds'
+import Login from './Login'
 
 
 function App() {
@@ -32,9 +33,11 @@ function App() {
           <Route path="/userList" element={<UserList/>} />
           <Route path="/user/:id" element={<DetailUser/>} />
           <Route path="/userAdd" element={<UserPost/>} />
+          <Route path="/login" element={<Login/>} />
           <Route path="/userUpdate/:id" element={<UserUpdate/>} />
           <Route path="/userDelete/:id" element={<UserDelete/>} />
           <Route path="/museumsVisited/:idUser" element={<MuseumsVisiteds/>} />
+          
           </Routes>
 
           

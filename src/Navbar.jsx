@@ -32,7 +32,7 @@ function Navbar() {
               <ul className="dropdown-menu">
                 <li><Link className="dropdown-item" to="/userList">Lista de usuarios</Link></li>
                 <li><Link className="dropdown-item" to="/userAdd">Crear un usuario</Link></li>
-
+                <li><Link className="dropdown-item" to="/login">Login</Link></li>
               </ul>
             </li>
             

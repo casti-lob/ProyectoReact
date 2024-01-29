@@ -24,3 +24,8 @@ export const updateUser =(userId,updateUser)=>{
 export const deleteUser =(userId)=>{
     return apiService.delete(`${userId}`)
 }
+
+//Hacer el login
+export const login =(nameUser, password)=>{
+    return apiService.get('/login',{nameUser,password})
+}
