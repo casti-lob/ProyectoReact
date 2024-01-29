@@ -1,6 +1,6 @@
 import axios  from "axios";
 
-const baseURL = "http://localhost:3000/users"
+const baseURL = "https://proyecto-node-basico.vercel.app/users"
 
 const apiService = axios.create({
     baseURL
@@ -29,3 +29,4 @@ export const deleteUser =(userId)=>{
 export const login =(nameUser, password)=>{
     return apiService.get('/login',{nameUser,password})
 }
+
