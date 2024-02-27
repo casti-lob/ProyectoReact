@@ -1,4 +1,4 @@
-
+/*
 import {BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import MuseumPost from './AddMuseum'
 import './App.css'
@@ -49,3 +49,31 @@ function App() {
 }
 
 export default App
+*/
+
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
+import axios from 'axios';
+import TaskList from './TaskList';
+import AddTaskForm from './AddTaskForm';
+import NavbarExam from './NavbarExam';
+import DeleteTask from './TaskItem';
+
+const App = () => {
+
+  return (
+    <Router>
+      <NavbarExam/>
+      <Routes>
+        <Route path="/tasksList" element={<TaskList/>} />
+        <Route path="/tasksAdd" element={<AddTaskForm/>} />
+        <Route path="/delete" element={<DeleteTask/>} />
+      </Routes>
+      
+
+      
+    </Router>
+  );
+};
+
+export default App;
